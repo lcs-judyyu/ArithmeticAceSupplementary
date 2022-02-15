@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A2DFB1A27BB5E1C00DBD0EB /* QuestionPresentationVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DFB1927BB5E1C00DBD0EB /* QuestionPresentationVIew.swift */; };
 		8113965827B3D32100E5B829 /* SubtractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8113965727B3D32100E5B829 /* SubtractionView.swift */; };
 		8113966827B4225200E5B829 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8113966727B4225200E5B829 /* Lottie */; };
 		8113966B27B422FB00E5B829 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8113966A27B422FB00E5B829 /* LottieView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A2DFB1927BB5E1C00DBD0EB /* QuestionPresentationVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPresentationVIew.swift; sourceTree = "<group>"; };
 		8113965727B3D32100E5B829 /* SubtractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractionView.swift; sourceTree = "<group>"; };
 		8113966A27B422FB00E5B829 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		8113966E27B4253600E5B829 /* 51926-happy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "51926-happy.json"; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				8113966A27B422FB00E5B829 /* LottieView.swift */,
+				5A2DFB1927BB5E1C00DBD0EB /* QuestionPresentationVIew.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				81FDA62E27B160FF002471AE /* MultiplicationView.swift in Sources */,
 				812B4B6427B319C5003A469B /* DivisionView.swift in Sources */,
 				81FDA62C27B160FF002471AE /* ArithmeticAceApp.swift in Sources */,
+				5A2DFB1A27BB5E1C00DBD0EB /* QuestionPresentationVIew.swift in Sources */,
 				81BE3A9427B2DAE800880E99 /* AdditionView.swift in Sources */,
 				8113966B27B422FB00E5B829 /* LottieView.swift in Sources */,
 				8113965827B3D32100E5B829 /* SubtractionView.swift in Sources */,

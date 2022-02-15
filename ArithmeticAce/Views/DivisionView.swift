@@ -31,16 +31,7 @@ struct DivisionView: View {
     var body: some View {
         
         VStack(spacing: 0) {
-            HStack {
-                Text("÷")
-                
-                Spacer()
-                
-                VStack(alignment: .trailing) {
-                    Text("\(dividend)")
-                    Text("\(divisor)")
-                }
-            }
+           QuestionPresentationVIew(operation: "÷", firstValue: divisor, secondValue: dividend)
             
             Divider()
             

@@ -31,16 +31,7 @@ struct AdditionView: View {
     var body: some View {
         
         VStack(spacing: 0) {
-            HStack {
-                Text("+")
-                
-                Spacer()
-                
-                VStack(alignment: .trailing) {
-                    Text("\(augend)")
-                    Text("\(addend)")
-                }
-            }
+           QuestionPresentationVIew(operation: "+", firstValue: augend, secondValue: addend)
             
             Divider()
             
