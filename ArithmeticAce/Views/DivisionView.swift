@@ -39,34 +39,10 @@ struct DivisionView: View {
             
             ZStack {
                 
-                Button(action: {
-                    
-                    // Answer has been checked!
-                    answerChecked = true
-                    
-                    // Convert the input given to an integer, if possible
-                    guard let quotientGiven = Int(inputGiven) else {
-                        // Sadness, not a number
-                        answerCorrect = false
-                        return
-                    }
-                    
-                    // Check the answer!
-                    if quotientGiven == correctQuotient {
-                        // Celebrate! 👍🏼
-                        answerCorrect = true
-                    } else {
-                        // Sadness, they gave a number, but it's correct 😭
-                        answerCorrect = false
-                    }
-                }, label: {
-                    Text("Check Answer")
-                        .font(.largeTitle)
-                })
-                    .padding()
-                    .buttonStyle(.bordered)
-                // Only show this button when an answer has not been checked
-                    .opacity(answerChecked == false ? 1.0 : 0.0)
+                CheckAnswerButtonView(answerChecked: $answerChecked,
+                                      answerCorrect: $answerCorrect,
+                                      inputGiven: $inputGiven,
+                                      correctAnswer: correctQuotient)
                 
                 Button(action: {
                     // Generate a new question
