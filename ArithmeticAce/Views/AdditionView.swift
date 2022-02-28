@@ -133,6 +133,8 @@ struct AdditionView: View {
                         }
                     }
                     
+                    Spacer()
+                    
                     ZStack {
                         Image(systemName: "checkmark.circle")
                             .foregroundColor(.green)
@@ -150,8 +152,6 @@ struct AdditionView: View {
                 }
                 .font(.title2)
             }
-            
-            Spacer()
         }
         .task {
             addend = Int.random(in: 1...144 - augend)
