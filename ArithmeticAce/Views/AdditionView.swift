@@ -14,7 +14,7 @@ struct AdditionView: View {
     
     @State var currentQuestion: PreviousQuesitons = PreviousQuesitons(augend: 0,
                                                                       addend: 0,
-                                                                      inputGiven: "",
+                                                                      inputGiven: "1234",
                                                                       correctSum: 0,
                                                                       answerCorrect: false)
     
@@ -125,13 +125,12 @@ struct AdditionView: View {
                             Text("\(currentPrevious.correctSum)")
                         } else {
                             Text("\(currentPrevious.augend)") +
-                            Text("+ ") +
+                            Text(" + ") +
                             Text("\(currentPrevious.addend)") +
                             Text(" = ") +
                             Text("\(currentPrevious.inputGiven)") +
                             Text(" (" + "\(currentPrevious.correctSum)" + ")")
                         }
-
                     }
                     
                     ZStack {
@@ -156,6 +155,8 @@ struct AdditionView: View {
         }
         .task {
             addend = Int.random(in: 1...144 - augend)
+            
+            loadPrevious()
         }
         .onChange(of: scenePhase) { newPhase in
             if newPhase == .inactive {
@@ -166,12 +167,66 @@ struct AdditionView: View {
                 print("Background")
                 
                 //permanently save the favourite list
-                //persistFavourites()
+                persistPrevious()
             }
         }
         .padding(.horizontal)
         .font(.system(size: 72))
         
+    }
+    //MARK: Functions
+    //save data permanently
+    func persistPrevious() {
+        //get a location to save data
+        let filename = getDocumentsDirectory().appendingPathComponent(savedPreviousLabel)
+        print(filename)
+        
+        //try to encodr data to JSON
+        do {
+           let encoder = JSONEncoder()
+            
+            //configure the encoder to "pretty print" the JSON
+            encoder.outputFormatting = .prettyPrinted
+            
+            //Encode the list of favourites
+            let data = try encoder.encode(previous)
+            
+            //write JSON to a file in the filename location
+            try data.write(to: filename, options: [.atomicWrite, .completeFileProtection])
+            
+            //see the data
+            print("Save data to the document directory successfully.")
+            print("=========")
+            print(String(data: data, encoding: .utf8)!)
+            
+        } catch {
+            print("Unable to write list of favourites to the document directory")
+            print("=========")
+            print(error.localizedDescription)
+        }
+    }
+    
+    func loadPrevious() {
+        let filename = getDocumentsDirectory().appendingPathComponent(savedPreviousLabel)
+        print(filename)
+        
+        do {
+            //load raw data
+           let data = try Data(contentsOf: filename)
+            
+            print("Save data to the document directory successfully.")
+            print("=========")
+            print(String(data: data, encoding: .utf8)!)
+            
+            //decode JSON into Swift native data structures
+            //NOTE: [] are used since we load into an array
+            previous = try JSONDecoder().decode([PreviousQuesitons].self, from: data)
+            
+        } catch {
+            print("Could not loas the data from the stored JSON file")
+            print("=========")
+            print(error.localizedDescription)
+        }
     }
 }
 
