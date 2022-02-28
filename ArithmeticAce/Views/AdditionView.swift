@@ -12,10 +12,10 @@ struct AdditionView: View {
     // MARK: Stored properties
     @Environment(\.scenePhase) var scenePhase
     
-    @State var currentQuestion: PreviousQuesitons = PreviousQuesitons(augend: 0,
-                                                                      addend: 0,
+    @State var currentQuestion: PreviousQuesitons = PreviousQuesitons(firstValue: 0,
+                                                                      secondValue: 0,
                                                                       inputGiven: "1234",
-                                                                      correctSum: 0,
+                                                                      correctAnswer: 1233,
                                                                       answerCorrect: false)
     
     @State var augend = Int.random(in: 1...143)
@@ -70,12 +70,11 @@ struct AdditionView: View {
                         answerCorrect = false
                     }
                     
-                    currentQuestion = PreviousQuesitons(augend: augend,
-                                                        addend: addend,
+                    currentQuestion = PreviousQuesitons(firstValue: augend,
+                                                        secondValue: addend,
                                                         inputGiven: inputGiven,
-                                                        correctSum: correctSum,
+                                                        correctAnswer: correctSum,
                                                         answerCorrect: answerCorrect)
-                    
                     //add previous question to the list
                     previous.append(currentQuestion)
                     
@@ -118,18 +117,18 @@ struct AdditionView: View {
                 HStack {
                     ZStack {
                         if currentPrevious.answerCorrect == true {
-                            Text("\(currentPrevious.augend)") +
+                            Text("\(currentPrevious.firstValue)") +
                             Text(" + ") +
-                            Text("\(currentPrevious.addend)") +
+                            Text("\(currentPrevious.secondValue)") +
                             Text(" = ") +
-                            Text("\(currentPrevious.correctSum)")
+                            Text("\(currentPrevious.correctAnswer)")
                         } else {
-                            Text("\(currentPrevious.augend)") +
+                            Text("\(currentPrevious.firstValue)") +
                             Text(" + ") +
-                            Text("\(currentPrevious.addend)") +
+                            Text("\(currentPrevious.secondValue)") +
                             Text(" = ") +
                             Text("\(currentPrevious.inputGiven)") +
-                            Text(" (" + "\(currentPrevious.correctSum)" + ")")
+                            Text(" (" + "\(currentPrevious.correctAnswer)" + ")")
                         }
                     }
                     

@@ -8,9 +8,9 @@
 import Foundation
 
 struct PreviousQuesitons: Decodable, Hashable, Encodable {
-    let augend: Int
-    let addend: Int
+    let firstValue: Int
+    let secondValue: Int
     let inputGiven: String
-    let correctSum: Int
+    let correctAnswer: Int
     let answerCorrect: Bool
 }
