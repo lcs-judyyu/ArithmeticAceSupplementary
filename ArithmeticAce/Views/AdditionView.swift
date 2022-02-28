@@ -127,7 +127,7 @@ struct AdditionView: View {
                             Text(" + ") +
                             Text("\(currentPrevious.secondValue)") +
                             Text(" = ") +
-                            Text("\(currentPrevious.inputGiven)") +
+                            Text(currentPrevious.inputGiven) +
                             Text(" (" + "\(currentPrevious.correctAnswer)" + ")")
                         }
                     }
@@ -182,7 +182,7 @@ struct AdditionView: View {
         
         //try to encodr data to JSON
         do {
-           let encoder = JSONEncoder()
+            let encoder = JSONEncoder()
             
             //configure the encoder to "pretty print" the JSON
             encoder.outputFormatting = .prettyPrinted
@@ -211,7 +211,7 @@ struct AdditionView: View {
         
         do {
             //load raw data
-           let data = try Data(contentsOf: filename)
+            let data = try Data(contentsOf: filename)
             
             print("Save data to the document directory successfully.")
             print("=========")
