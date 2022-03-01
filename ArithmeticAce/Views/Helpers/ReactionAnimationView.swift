@@ -17,11 +17,11 @@ struct ReactionAnimationView: View {
     
     var body: some View {
         ZStack {
-            LottieView(animationNamed: "51926-happy")
+            LottieView(animationNamed: "51926-happy", selectedLoopMode: .loop)
                 .opacity(answerCorrect == true ? 1.0 : 0.0)
                 .padding()
 
-            LottieView(animationNamed: "91726-sad-guy-is-walking")
+            LottieView(animationNamed: "91726-sad-guy-is-walking", selectedLoopMode: .loop)
                 .opacity(answerChecked == true && answerCorrect == false ? 1.0 : 0.0)
                 .padding()
         }

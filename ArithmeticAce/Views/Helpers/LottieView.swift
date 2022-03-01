@@ -12,6 +12,7 @@ import Lottie
 struct LottieView: UIViewRepresentable {
 
     @State var animationNamed: String
+    let selectedLoopMode: LottieLoopMode
 
     func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
         
@@ -22,7 +23,7 @@ struct LottieView: UIViewRepresentable {
         let animation = Animation.named(animationNamed)
         animationView.animation = animation
         animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
+        animationView.loopMode = selectedLoopMode
         animationView.play()
         
         // Constraints

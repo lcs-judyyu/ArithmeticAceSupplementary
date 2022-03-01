@@ -86,6 +86,7 @@ struct AdditionView: View {
                     .buttonStyle(.bordered)
                 // Only show this button when an answer has not been checked
                     .opacity(answerChecked == false ? 1.0 : 0.0)
+                    .disabled(inputGiven.isEmpty ? true : false)
                 
                 Button(action: {
                     // Generate a new question
